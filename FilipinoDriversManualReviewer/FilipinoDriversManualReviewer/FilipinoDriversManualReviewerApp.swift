@@ -13,7 +13,7 @@ struct FilipinoDriversManualReviewerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            QuestionAnswerMainContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

@@ -17,6 +17,13 @@
 		2103427F2A70969400BD3631 /* FilipinoDriversManualReviewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103427E2A70969400BD3631 /* FilipinoDriversManualReviewerUITests.swift */; };
 		210342812A70969400BD3631 /* FilipinoDriversManualReviewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210342802A70969400BD3631 /* FilipinoDriversManualReviewerUITestsLaunchTests.swift */; };
 		2103428E2A70984000BD3631 /* QuestionAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2103428D2A70984000BD3631 /* QuestionAnswerView.swift */; };
+		216413902A7B10900078E671 /* ReviewSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164138F2A7B10900078E671 /* ReviewSet.swift */; };
+		216413922A7BBA690078E671 /* QuestionAnswerMainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216413912A7BBA690078E671 /* QuestionAnswerMainContentView.swift */; };
+		216413952A7BBB250078E671 /* APIClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216413942A7BBB250078E671 /* APIClientProtocol.swift */; };
+		216413972A7BBB350078E671 /* QuestionsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216413962A7BBB350078E671 /* QuestionsAPI.swift */; };
+		2164139A2A7BBB630078E671 /* RouterDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216413992A7BBB630078E671 /* RouterDestination.swift */; };
+		2164139C2A7BBB760078E671 /* SheetDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164139B2A7BBB760078E671 /* SheetDestination.swift */; };
+		2164139E2A7BBB850078E671 /* RouterPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164139D2A7BBB850078E671 /* RouterPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		2103427E2A70969400BD3631 /* FilipinoDriversManualReviewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilipinoDriversManualReviewerUITests.swift; sourceTree = "<group>"; };
 		210342802A70969400BD3631 /* FilipinoDriversManualReviewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilipinoDriversManualReviewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2103428D2A70984000BD3631 /* QuestionAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerView.swift; sourceTree = "<group>"; };
+		2164138F2A7B10900078E671 /* ReviewSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSet.swift; sourceTree = "<group>"; };
+		216413912A7BBA690078E671 /* QuestionAnswerMainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerMainContentView.swift; sourceTree = "<group>"; };
+		216413942A7BBB250078E671 /* APIClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientProtocol.swift; sourceTree = "<group>"; };
+		216413962A7BBB350078E671 /* QuestionsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsAPI.swift; sourceTree = "<group>"; };
+		216413992A7BBB630078E671 /* RouterDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDestination.swift; sourceTree = "<group>"; };
+		2164139B2A7BBB760078E671 /* SheetDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDestination.swift; sourceTree = "<group>"; };
+		2164139D2A7BBB850078E671 /* RouterPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +115,13 @@
 		2103425C2A70969100BD3631 /* FilipinoDriversManualReviewer */ = {
 			isa = PBXGroup;
 			children = (
+				216413982A7BBB520078E671 /* Navigation */,
+				216413932A7BBB0E0078E671 /* Networking */,
+				2164138D2A7B07DA0078E671 /* Data */,
 				2103425D2A70969100BD3631 /* FilipinoDriversManualReviewerApp.swift */,
+				2164138E2A7B10840078E671 /* Models */,
 				2103425F2A70969100BD3631 /* ContentView.swift */,
+				216413912A7BBA690078E671 /* QuestionAnswerMainContentView.swift */,
 				2103428D2A70984000BD3631 /* QuestionAnswerView.swift */,
 				210342612A70969300BD3631 /* Assets.xcassets */,
 				210342662A70969300BD3631 /* Persistence.swift */,
@@ -136,6 +155,40 @@
 				210342802A70969400BD3631 /* FilipinoDriversManualReviewerUITestsLaunchTests.swift */,
 			);
 			path = FilipinoDriversManualReviewerUITests;
+			sourceTree = "<group>";
+		};
+		2164138D2A7B07DA0078E671 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2164138E2A7B10840078E671 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2164138F2A7B10900078E671 /* ReviewSet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		216413932A7BBB0E0078E671 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				216413942A7BBB250078E671 /* APIClientProtocol.swift */,
+				216413962A7BBB350078E671 /* QuestionsAPI.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		216413982A7BBB520078E671 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				216413992A7BBB630078E671 /* RouterDestination.swift */,
+				2164139B2A7BBB760078E671 /* SheetDestination.swift */,
+				2164139D2A7BBB850078E671 /* RouterPath.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +321,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2164139C2A7BBB760078E671 /* SheetDestination.swift in Sources */,
+				216413902A7B10900078E671 /* ReviewSet.swift in Sources */,
+				216413922A7BBA690078E671 /* QuestionAnswerMainContentView.swift in Sources */,
 				210342672A70969300BD3631 /* Persistence.swift in Sources */,
+				2164139A2A7BBB630078E671 /* RouterDestination.swift in Sources */,
 				210342602A70969100BD3631 /* ContentView.swift in Sources */,
 				2103426A2A70969300BD3631 /* FilipinoDriversManualReviewer.xcdatamodeld in Sources */,
+				216413972A7BBB350078E671 /* QuestionsAPI.swift in Sources */,
+				216413952A7BBB250078E671 /* APIClientProtocol.swift in Sources */,
+				2164139E2A7BBB850078E671 /* RouterPath.swift in Sources */,
 				2103428E2A70984000BD3631 /* QuestionAnswerView.swift in Sources */,
 				2103425E2A70969100BD3631 /* FilipinoDriversManualReviewerApp.swift in Sources */,
 			);
