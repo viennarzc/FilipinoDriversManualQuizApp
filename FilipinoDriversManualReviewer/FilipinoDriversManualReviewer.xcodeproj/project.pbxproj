@@ -120,9 +120,7 @@
 				2164138D2A7B07DA0078E671 /* Data */,
 				2103425D2A70969100BD3631 /* FilipinoDriversManualReviewerApp.swift */,
 				2164138E2A7B10840078E671 /* Models */,
-				2103425F2A70969100BD3631 /* ContentView.swift */,
-				216413912A7BBA690078E671 /* QuestionAnswerMainContentView.swift */,
-				2103428D2A70984000BD3631 /* QuestionAnswerView.swift */,
+				2164139F2A7BCDBF0078E671 /* Views */,
 				210342612A70969300BD3631 /* Assets.xcassets */,
 				210342662A70969300BD3631 /* Persistence.swift */,
 				2103426B2A70969300BD3631 /* Info.plist */,
@@ -189,6 +187,16 @@
 				2164139D2A7BBB850078E671 /* RouterPath.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		2164139F2A7BCDBF0078E671 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2103425F2A70969100BD3631 /* ContentView.swift */,
+				216413912A7BBA690078E671 /* QuestionAnswerMainContentView.swift */,
+				2103428D2A70984000BD3631 /* QuestionAnswerView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

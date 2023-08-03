@@ -13,7 +13,6 @@ class QuestionsAPI: APIClientProtocol {
     }
     
     func fetchDataObject<T: Decodable>(from url: URL) async throws -> T {
-
         
         let (data, response) = try await URLSession.shared.data(from: url)
         do {

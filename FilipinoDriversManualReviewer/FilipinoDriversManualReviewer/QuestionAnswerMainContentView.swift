@@ -13,24 +13,13 @@ struct QuestionAnswerMainContentView: View {
     
     @State private var selectedQ: Int = 0
     @State private var review: ReviewSet? = nil
-    
-    
+
     var body: some View {
         NavigationStack(path: $routerPath.path, root: {
-//            Button(action: {
-//                routerPath.navigate(to: .questionAnswer(item: .init(id: 1, question: "Question", options: ["A", "B", "C", "D"], answer: "C")))
-//            }, label: {
-//                Text("Navigate")
-//            })
-//            .withAppRouter()
             TabView(selection: $selectedQ) {
                 if let review = review {
                     ForEach(review.list) { item in
                         QuestionAnswerView(question: item.question, answerOptions: item.answerOptions, correctAnswer: item.answer)
-//                        QuestionAnswerView(question: "1", answerOptions: ["A", "B"], correctAnswer: "B")
-//                        QuestionAnswerView(question: "2", answerOptions: ["A", "B"], correctAnswer: "B")
-//                        QuestionAnswerView(question: "3", answerOptions: ["A", "B"], correctAnswer: "B")
-                        
                     }
                     
                 }
@@ -38,8 +27,7 @@ struct QuestionAnswerMainContentView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .task {
                 let item = await service.fetchQuestions()
-                
-                debugPrint("items",item?.list)
+
                 review = item
             }
             
