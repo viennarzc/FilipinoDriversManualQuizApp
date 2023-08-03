@@ -12,6 +12,7 @@ struct QuestionAnswerMainContentView: View {
     @StateObject private var service = QuestionsAPIService(questionsAPI: QuestionsAPI())
     
     @State private var selectedQ: Int = 0
+    @State private var review: ReviewSet? = nil
     
     
     var body: some View {
@@ -23,10 +24,14 @@ struct QuestionAnswerMainContentView: View {
 //            })
 //            .withAppRouter()
             TabView(selection: $selectedQ) {
-                ForEach(0..<10) { index in
-                    QuestionAnswerView(question: "1", answerOptions: ["A", "B"], correctAnswer: "B")
-                    QuestionAnswerView(question: "2", answerOptions: ["A", "B"], correctAnswer: "B")
-                    QuestionAnswerView(question: "3", answerOptions: ["A", "B"], correctAnswer: "B")
+                if let review = review {
+                    ForEach(review.list) { item in
+                        QuestionAnswerView(question: item.question, answerOptions: item.answerOptions, correctAnswer: item.answer)
+//                        QuestionAnswerView(question: "1", answerOptions: ["A", "B"], correctAnswer: "B")
+//                        QuestionAnswerView(question: "2", answerOptions: ["A", "B"], correctAnswer: "B")
+//                        QuestionAnswerView(question: "3", answerOptions: ["A", "B"], correctAnswer: "B")
+                        
+                    }
                     
                 }
             }
@@ -35,6 +40,7 @@ struct QuestionAnswerMainContentView: View {
                 let item = await service.fetchQuestions()
                 
                 debugPrint("items",item?.list)
+                review = item
             }
             
             

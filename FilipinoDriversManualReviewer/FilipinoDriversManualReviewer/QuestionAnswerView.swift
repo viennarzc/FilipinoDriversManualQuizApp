@@ -10,10 +10,10 @@ import SwiftUI
 struct QuestionAnswerView: View {
     
     let question: String
-    let answerOptions: [String]
+    let answerOptions: [AnswerOption]
     let correctAnswer: String
     
-    @State private var selectedOption: String?
+    @State private var selectedOption: AnswerOption?
     @State private var isCorrectAnswer: Bool = false
     @State private var hasCommittedAnswer: Bool = false
     
@@ -45,16 +45,16 @@ struct QuestionAnswerView: View {
             Spacer(minLength: 32)
             
             VStack(spacing: 16) {
-                ForEach(answerOptions, id: \.self) { item in
+                ForEach(answerOptions) { item in
                     VStack {
-                        Text(item)
+                        Text(item.desc)
                             .fontWeight(selectedOption == item ? .medium : .regular)
-                            .foregroundColor(setOptionColor(selectedAnswer: selectedOption, equalTo: item))
+                            .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .center)
                     .background(RoundedRectangle(
-                        cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption, equalTo: item), lineWidth: selectedOption == item ? 3 : 1))
+                        cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
                     .contentShape(Rectangle())
                     .onTapGesture {
                         self.selectedOption = item
@@ -88,7 +88,9 @@ struct QuestionAnswerView: View {
     private func checkAnswer() {
         hasCommittedAnswer = true
         
-        if correctAnswer == selectedOption {
+        guard let selectedOption = selectedOption else { return }
+        
+        if correctAnswer == selectedOption.code {
             isCorrectAnswer = true
         } else {
             isCorrectAnswer = false
@@ -99,10 +101,7 @@ struct QuestionAnswerView: View {
 struct QuestionAnswerView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionAnswerView(question: "What is the fastest way to drive?", answerOptions: [
-            "Sleep",
-            "Take a seat in the passengers seat and look around",
-            "Never forget to turn on engine",
-            "Wear seatbelt"
+            AnswerOption(code: "A", desc: "The who")
         ], correctAnswer: "Wear seatbelt")
     }
 }
