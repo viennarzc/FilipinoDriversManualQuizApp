@@ -52,17 +52,23 @@ struct QuestionAnswerMainContentView: View {
                 TabView(selection: $selectedQ) {
                     if let review = review {
                         ForEach(0..<(review.shuffledQuestionSet.count)) { index in
-                            QuestionAnswerView(question: review.shuffledQuestionSet[index].question, answerOptions: review.shuffledQuestionSet[index].answerOptions.shuffled(), correctAnswer: review.shuffledQuestionSet[index].answer, onEvent: execute(with:))
-                                .tag(index)
-                                .padding(.horizontal)
+                            QuestionAnswerView(
+                                question: review.shuffledQuestionSet[index].question,
+                                answerOptions: review.shuffledQuestionSet[index].answerOptions.shuffled(),
+                                correctAnswer: review.shuffledQuestionSet[index].answer,
+                                onEvent: execute
+                            )
+                            .tag(index)
+                            .padding(.horizontal)
                                 
                         }
                         
                     }
                 }
                 .onChange(of: selectedQ) { newValue in
+                    debugPrint(newValue)
+                    
                     if let review = review {
-                        debugPrint(Float(Float(newValue + 1) / Float(review.shuffledQuestionSet.count)))
                         self.barProgress = Float(Float(newValue) / Float(review.shuffledQuestionSet.count))
                         
                     }
@@ -107,12 +113,16 @@ struct QuestionAnswerMainContentView: View {
             break
             
         case .correctAnswerAndContinue:
-            if review?.shuffledQuestionSet.count ?? 0 >= (selectedQ - 1)  {
+            if let review = review, review.shuffledQuestionSet.count <= (selectedQ)  {
+                debugPrint("count \(review.shuffledQuestionSet.count)")
+                debugPrint("\(selectedQ)")
+                
                 withAnimation {
                     selectedQ = selectedQ + 1
-                    
                 }
                 
+            } else {
+                debugPrint("Finish")
             }
         
         }
