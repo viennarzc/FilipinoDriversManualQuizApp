@@ -113,7 +113,7 @@ struct QuestionAnswerMainContentView: View {
             break
             
         case .correctAnswerAndContinue:
-            if let review = review, review.shuffledQuestionSet.count <= (selectedQ)  {
+            if let review = review, (review.shuffledQuestionSet.count - 1) > (selectedQ)  {
                 debugPrint("count \(review.shuffledQuestionSet.count)")
                 debugPrint("\(selectedQ)")
                 

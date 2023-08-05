@@ -34,7 +34,7 @@ struct QuestionAnswerView: View {
     
     @State private var questionAndAnswerState: QuestionAnswerState = .idle {
         didSet {
-            debugPrint("old valude for state: ",oldValue)
+            debugPrint("old valuse for state: ",oldValue)
             debugPrint("new value state: ", questionAndAnswerState)
             
             if oldValue == .correctAnswer, questionAndAnswerState == .correctAnswer {
@@ -71,37 +71,40 @@ struct QuestionAnswerView: View {
         
         GroupBox {
             VStack {
-                Text(question)
-                    .font(.title2.bold())
-                
-                Spacer(minLength: 32)
-                
-                VStack(spacing: 16) {
-                    ForEach(answerOptions) { item in
-                        VStack {
-                            Text(item.desc)
-                                .fontWeight(selectedOption == item ? .medium : .regular)
-                                .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
-                                .multilineTextAlignment(.center)
-                                .fixedSize(horizontal: false, vertical: true)
+                ScrollView(showsIndicators: false) {
+                    Text(question)
+                        .font(.title2.bold())
+                    
+                    Spacer(minLength: 32)
+                    
+                    VStack(spacing: 16) {
+                        ForEach(answerOptions) { item in
+                            VStack {
+                                Text(item.desc)
+                                    .fontWeight(selectedOption == item ? .medium : .regular)
+                                    .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
+                                    .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .background(RoundedRectangle(
+                                cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                self.selectedOption = item
+                            }
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .background(RoundedRectangle(
-                            cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            self.selectedOption = item
+                        .disabled(isCorrectAnswer)
+                        .onChange(of: selectedOption) { newValue in
+                            hasCommittedAnswer = false
                         }
                     }
-                    .disabled(isCorrectAnswer)
-                    .onChange(of: selectedOption) { newValue in
-                        hasCommittedAnswer = false
-                    }
+                    
+                    
+                    Spacer(minLength: 64)
+                    
                 }
-                
-                
-                Spacer(minLength: 64)
                 
                 Button(action: checkAnswer, label: {
                     Text(isCorrectAnswer ? "Continue" : "Check Answer")
@@ -147,5 +150,14 @@ struct QuestionAnswerView_Previews: PreviewProvider {
         QuestionAnswerView(question: "What is the fastest way to drive?", answerOptions: [
             AnswerOption(code: "A", desc: "The who")
         ], correctAnswer: "Wear seatbelt", onEvent: { _ in })
+        
+        QuestionAnswerView(question: "This should be a very long question, This should be a very long question, This should be a very long question, This should be a very long question? This should be a very long question, This should be a very long question, This should be a very long question, This should be a very long question?",
+                           answerOptions: [
+            AnswerOption(code: "A", desc: "Some Option, Some Option, Some Option Some Option, Some Option, Some Option"),
+            AnswerOption(code: "B", desc: "Some Option B, Some Option, Some Option Some Option, Some Option, Some Option"),
+            AnswerOption(code: "C", desc: "Some Option C, Some Option, Some Option Some Option, Some Option, Some Option"),
+            AnswerOption(code: "D", desc: "Some Option D, Some Option, Some Option Some Option, Some Option, Some Option")
+                           ], correctAnswer: "Wear seatbelt", onEvent: { _ in })
+        .previewDevice(/*@START_MENU_TOKEN@*/"iPhone 11"/*@END_MENU_TOKEN@*/)
     }
 }
