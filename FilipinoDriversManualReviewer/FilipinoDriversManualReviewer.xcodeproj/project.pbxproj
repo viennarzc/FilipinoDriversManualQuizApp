@@ -25,6 +25,7 @@
 		2164139C2A7BBB760078E671 /* SheetDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164139B2A7BBB760078E671 /* SheetDestination.swift */; };
 		2164139E2A7BBB850078E671 /* RouterPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164139D2A7BBB850078E671 /* RouterPath.swift */; };
 		21DA34072A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 21DA34062A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json */; };
+		21DA340B2A7E87D700B935B1 /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DA340A2A7E87D700B935B1 /* GetStartedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		2164139B2A7BBB760078E671 /* SheetDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDestination.swift; sourceTree = "<group>"; };
 		2164139D2A7BBB850078E671 /* RouterPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterPath.swift; sourceTree = "<group>"; };
 		21DA34062A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NonProfessionalLightReviewQuestions.json; sourceTree = "<group>"; };
+		21DA340A2A7E87D700B935B1 /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				2103425F2A70969100BD3631 /* ContentView.swift */,
+				21DA340A2A7E87D700B935B1 /* GetStartedView.swift */,
 				216413912A7BBA690078E671 /* QuestionAnswerMainContentView.swift */,
 				2103428D2A70984000BD3631 /* QuestionAnswerView.swift */,
 			);
@@ -351,6 +354,7 @@
 				216413972A7BBB350078E671 /* QuestionsAPI.swift in Sources */,
 				216413952A7BBB250078E671 /* APIClientProtocol.swift in Sources */,
 				2164139E2A7BBB850078E671 /* RouterPath.swift in Sources */,
+				21DA340B2A7E87D700B935B1 /* GetStartedView.swift in Sources */,
 				2103428E2A70984000BD3631 /* QuestionAnswerView.swift in Sources */,
 				2103425E2A70969100BD3631 /* FilipinoDriversManualReviewerApp.swift in Sources */,
 			);

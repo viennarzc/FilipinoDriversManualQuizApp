@@ -113,8 +113,6 @@ struct QuestionAnswerView: View {
                         .font(.body.bold())
                         .background(Capsule(style: .continuous).fill(Color.black))
                     
-                    
-                    
                 })
                 .buttonStyle(.plain)
                 .tint(.black)
