@@ -254,401 +254,671 @@
     {
       "answerOptions" : [
         {
-          "code" : "",
-          "desc" : ""
+          "code" : "A",
+          "desc" : "Look at your phone"
+        },
+        {
+          "code" : "B",
+          "desc" : "Stare down at the road"
+        },
+        {
+          "code" : "C",
+          "desc" : "Continue moving"
+        },
+        {
+          "code" : "D",
+          "desc" : "Slow down and stop"
         }
       ],
-      "answer" : "",
+      "answer" : "D",
       "question" : "A driver of a vehicle approaching a crossing or intersection shall:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "1-second rule"
+        },
+        {
+          "code" : "B",
+          "desc" : "0-second rule"
+        },
+        {
+          "code" : "C",
           "desc" : "2-second rule"
+        },
+        {
+          "code" : "D",
+          "desc" : "break the rules"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "At a normal speed, keeping one's distance lessens the risk of road crash. One good rule is to leave a car length or follow the __________."
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "Look out for cyclists/ motorcyclists filtering through the traffic"
+        },
+        {
+          "code" : "B",
+          "desc" : "Take photos of the traffic and post to social media"
+        },
+        {
+          "code" : "C",
+          "desc" : "Look out for cyclists/ motorcyclists filtering through the traffic"
+        },
+        {
+          "code" : "D",
           "desc" : "Look out for cyclists/ motorcyclists filtering through the traffic"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "What should you do if you drive in heavy traffic and want to change lanes?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "C",
           "desc" : "At intersections and when approaching a bridge, curve, or a crest\nSolid yellow or white line, shoulder of the road, railroad, hospital and school zone, busy streets"
+        },
+        {
+          "code" : "A",
+          "desc" : "You can overtake anywhere"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "Where should you NOT overtake?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "C",
+          "desc" : "100 push-ups on the ground"
+        },
+        {
+          "code" : "D",
           "desc" : "Perpetual forfeiture of driver's license"
         }
       ],
-      "answer" : "",
+      "answer" : "D",
       "question" : "What is the maximum penalty for driving under the influence of liquor or prohibited drugs?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "Step on the breaks"
+        },
+        {
+          "code" : "B",
+          "desc" : "Change lane immediately"
+        },
+        {
+          "code" : "C",
           "desc" : "Make a signal"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "What should be done first when changing lanes?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "B",
           "desc" : "acceleration lane (continuity lane)"
+        },
+        {
+          "code" : "C",
+          "desc" : "airconditioner "
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "When merging on expressway, you have to make full use of the:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "Drive as much as you can"
+        },
+        {
+          "code" : "B",
+          "desc" : "Tell your friends about your condition"
+        },
+        {
+          "code" : "C",
           "desc" : "Do NOT drive or consult a doctor before driving"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "What should a driver do when he is under medication that can affect his driving?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "C",
+          "desc" : "Allowed"
+        },
+        {
+          "code" : "D",
           "desc" : "NEVER permitted"
         }
       ],
-      "answer" : "",
+      "answer" : "D",
       "question" : "Crossing a double solid yellow line is ___________"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
-          "desc" : ""
+          "code" : "A",
+          "desc" : "Be patient and allow them to cross"
+        },
+        {
+          "code" : "B",
+          "desc" : "Honk many times"
+        },
+        {
+          "code" : "C",
+          "desc" : "Be patient and allow them to cross"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "What must a driver do when an elderly person crosses the pedestrian lane?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "left lane/first lane (leftmost)"
+        },
+        {
+          "code" : "B",
+          "desc" : "right lane/first lane (rightmost)"
         }
       ],
-      "answer" : "",
+      "answer" : "Z",
       "question" : "On a two-lane road with normal traffic situation, overtaking is only allowed at the:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "Step on the gas"
+        },
+        {
+          "code" : "B",
           "desc" : "Prepare to slow down and stay on your lane for a safer travel"
+        },
+        {
+          "code" : "C",
+          "desc" : "Prepare to slow down and change lane "
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "What should you do when your vehicle is approaching a crest?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "B",
+          "desc" : "increase your alertness"
+        },
+        {
+          "code" : "C",
           "desc" : "decrease your reaction time, impair your judgment, and give you a false sense of confidence"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "Drinking any amount of alcohol while driving may:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "vehicles turning on that direction shall turn right"
+        },
+        {
+          "code" : "B",
+          "desc" : "vehicles turning on that direction shall u-turn"
+        },
+        {
+          "code" : "C",
+          "desc" : "vehicles turning on that direction shall stop"
+        },
+        {
+          "code" : "D",
           "desc" : "vehicles turning on that direction shall proceed"
         }
       ],
-      "answer" : "",
+      "answer" : "D",
       "question" : "A green arrow traffic light means:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "Show off your vehicle"
+        },
+        {
+          "code" : "B",
           "desc" : "warn other road users of your presence"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "Motor vehicle's horn is used to:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "The vehicles within the roundabout"
+        },
+        {
+          "code" : "B",
+          "desc" : "The vehicles outside the roundabout"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "Which vehicles have the right-of- way at a rotunda or roundabout?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "The driver never loses his concentration"
+        },
+        {
+          "code" : "B",
           "desc" : "Listening to loud music, using mobile phone or gadget, watching videos, rubbernecking, and engaging in long conversations with passenger/s"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "What could be a reason for a driver to lose his concentration in driving?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "when turning into a bridge"
+        },
+        {
+          "code" : "B",
           "desc" : "when turning into a driveway"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "In a single solid yellow line, you are allowed to cross only:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "stop at a safe side of the road to answer or make a call"
+        },
+        {
+          "code" : "B",
+          "desc" : "stop at the middle of the road to answer or make a call"
+        },
+        {
+          "code" : "C",
+          "desc" : "stop immediately to answer or make a call"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "If you are driving and you need to use your mobile phone, you should:"
     },
     {
       "answerOptions" : [
         {
           "code" : "",
+          "desc" : "Slow down and greet the driver"
+        },
+        {
+          "code" : "B",
+          "desc" : "Slow down and prepare to accelerate\nStudents are expected to cross the street"
+        },
+        {
+          "code" : "C",
           "desc" : "Slow down and prepare to stop\nStudents are expected to cross the street"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "What should you do if the school service is parked on the other side of the highway while the hazard warning light is on?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "only on the right lane if it is free from obstruction"
+        },
+        {
+          "code" : "B",
           "desc" : "either on the right or the left lane if it is free from obstruction"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "On a one-way road, overtaking is permitted:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "Police patrols and authorized Traffic Enforcer’s vehicle"
+        },
+        {
+          "code" : "B",
+          "desc" : "Anyone are authorized "
+        },
+        {
+          "code" : "C",
+          "desc" : "Sedan, SUV, and Pickup "
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : " What vehicles are allowed to use a red and blue flashing light (blinker)?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "C",
           "desc" : "using mobile phone while driving"
+        },
+        {
+          "code" : "D",
+          "desc" : "all acts is permitted "
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "One of the prohibited driving acts that could place your life at risk is"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "Any lane"
+        },
+        {
+          "code" : "B",
           "desc" : "Rightmost lane"
+        },
+        {
+          "code" : "C",
+          "desc" : "Inner lane"
+        },
+        {
+          "code" : "D",
+          "desc" : "Leftmost lane"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "In which lane should you take upon merging on the expressway?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "bragging"
+        },
+        {
+          "code" : "B",
+          "desc" : "beating the red light"
+        },
+        {
+          "code" : "C",
           "desc" : "illegal modification"
+        },
+        {
+          "code" : "D",
+          "desc" : "over speeding"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "If a driver operates a motor vehicle with a blinking/running/flashing brake light, he/she will be apprehended for:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "YES, as you will"
+        },
+        {
+          "code" : "B",
+          "desc" : "YES, if only you need to pee"
+        },
+        {
+          "code" : "C",
           "desc" : "NO, not in any time\nIt may cause confusion to other motorists and it may cause road crash"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "Are you allowed to leave your motor vehicle while the engine is running at a complete stop on the road?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "when you forgot to bring your license"
+        },
+        {
+          "code" : "B",
+          "desc" : "if you don't bring your lucky charm"
+        },
+        {
+          "code" : "C",
           "desc" : "low level or leaking brake fluid"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "This could be one of the possible causes of road crash, if neglected:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "child monitoring system"
+        },
+        {
+          "code" : "B",
           "desc" : "child restraint system"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "Under R.A. No. 11229, a child twelve (12) years old and below cannot sit at the back seat of a moving vehicle without the use of a ________________"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "to warn a hazard ahead (such as vehicle being towed, and road works ahead)"
+        },
+        {
+          "code" : "B",
+          "desc" : "to tell others that you are sleepy"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "While driving on the road, the driver is allowed to use warning (hazard) lights if needed:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "try to race with them"
+        },
+        {
+          "code" : "B",
+          "desc" : "signal them to step aside"
+        },
+        {
+          "code" : "D",
           "desc" : "be patient, expect them to make mistakes"
         }
       ],
-      "answer" : "",
+      "answer" : "D",
       "question" : "When following a student-driver, you should:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "accelerate faster"
+        },
+        {
+          "code" : "B",
           "desc" : "pull and stop into a passing place when loading or unloading"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "You are driving on a single-lane road with passing places only at the right, you should:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "Continue driving in that lane until it is safe to return to the proper lane"
+        },
+        {
+          "code" : "B",
+          "desc" : "Continue driving in that lane "
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : " You are approaching a busy junction with several lanes that has road markings. Suddenly, you entered the wrong lane. What should you do?"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "park anytime if you the weather is bad"
+        },
+        {
+          "code" : "B",
+          "desc" : "park anytime in any condition"
+        },
+        {
+          "code" : "C",
+          "desc" : "NOT park anytime, with no exceptions\nPWD parking spaces are intended only for PWDs"
+        },
+        {
+          "code" : "D",
           "desc" : "NOT park anytime, unless you are or with a PWD\nPWD parking spaces are intended only for PWDs"
         }
       ],
-      "answer" : "",
+      "answer" : "D",
       "question" : "You entered a fully occupied parking area except for a vacant PWD parking space. You can:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "you need to record a vlog"
+        },
+        {
+          "code" : "B",
+          "desc" : "making an emergency call at the middle of the road"
+        },
+        {
+          "code" : "C",
           "desc" : "making an emergency call at a safe place"
+        },
+        {
+          "code" : "D",
+          "desc" : "your friends are calling to invite you to dinner"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "You CANNOT use your mobile phone while driving, unless ______________________."
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "B",
           "desc" : "on the lay-by"
+        },
+        {
+          "code" : "B",
+          "desc" : "no place is allowed"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "When driving on expressways, you may stop to attend or call for an emergency:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "crash into the signs"
+        },
+        {
+          "code" : "B",
+          "desc" : "move to the other lane swiftly"
+        },
+        {
+          "code" : "C",
           "desc" : "move to the other lane with care"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "You are driving on the leftmost of a multiple-lane road and you see signs of a closed road ahead. You should:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
+          "desc" : "the vehicle behind you"
+        },
+        {
+          "code" : "B",
           "desc" : "pedestrians and motor vehicles with the first priority right-of-way"
         }
       ],
-      "answer" : "",
+      "answer" : "B",
       "question" : "Before turning, you are required to give way to:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
+          "code" : "A",
           "desc" : "slow down to stop and give way"
+        },
+        {
+          "code" : "B",
+          "desc" : "continue without stopping"
+        },
+        {
+          "code" : "C",
+          "desc" : "race with the emergency vehicle"
+        },
+        {
+          "code" : "D",
+          "desc" : "stop your vehicle"
         }
       ],
-      "answer" : "",
+      "answer" : "A",
       "question" : "When an emergency vehicle is approaching behind you with a siren and flashing lights, you must:"
     },
     {
       "answerOptions" : [
         {
-          "code" : "",
-          "desc" : "slow down to stop and give way"
-        }
-      ],
-      "answer" : "",
-      "question" : "When an emergency vehicle is approaching behind you with a siren and flashing lights, you must:"
-    },
-    {
-      "answerOptions" : [
+          "code" : "A",
+          "desc" : "wife/husband"
+        },
         {
-          "code" : "",
+          "code" : "B",
+          "desc" : "fellow road user"
+        },
+        {
+          "code" : "C",
           "desc" : "traffic enforcer"
+        },
+        {
+          "code" : "D",
+          "desc" : "passenger"
         }
       ],
-      "answer" : "",
+      "answer" : "C",
       "question" : "You are only allowed to stop on expressways when instructed by a ________________"
     }
   ]
