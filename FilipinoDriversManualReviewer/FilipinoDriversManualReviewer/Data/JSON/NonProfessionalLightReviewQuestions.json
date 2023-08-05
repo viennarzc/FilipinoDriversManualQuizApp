@@ -304,14 +304,6 @@
         {
           "code" : "B",
           "desc" : "Take photos of the traffic and post to social media"
-        },
-        {
-          "code" : "C",
-          "desc" : "Look out for cyclists/ motorcyclists filtering through the traffic"
-        },
-        {
-          "code" : "D",
-          "desc" : "Look out for cyclists/ motorcyclists filtering through the traffic"
         }
       ],
       "answer" : "A",
