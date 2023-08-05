@@ -107,8 +107,7 @@ class QuestionsLocalDataAPIService: QuestionsAPIServiceProtocol, LocalDataFetcha
     }
     
     func loadJSONObject<T>(filename: String, type: T.Type) async -> T where T : Decodable {
-        
-        
+
         guard let path = bundle.url(forResource: filename, withExtension: "json") else {
             fatalError("Faile to load JSON File \(filename)")
         }
@@ -126,7 +125,7 @@ class QuestionsLocalDataAPIService: QuestionsAPIServiceProtocol, LocalDataFetcha
     }
     
     func fetchQuestions() async -> ReviewSet? {
-        await loadJSONObject(filename: "", type: ReviewSet.self)
+        await loadJSONObject(filename: "NonProfessionalLightReviewQuestions", type: ReviewSet.self)
     }
     
     

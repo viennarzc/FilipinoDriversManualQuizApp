@@ -15,6 +15,8 @@ class ReviewSet: Decodable {
         self.driversLicenseCode = driversLicenseCode
         self.generalDesc = generalDesc
         self.list = list
+        
+        shuffledQuestionSet = Array(list.shuffled().prefix(upTo: 20))
     }
     
     let title: String
@@ -24,9 +26,30 @@ class ReviewSet: Decodable {
     let generalDesc: String
     let list: [QuestionListItem]
     
-    var shuffledQuestionSet: [QuestionListItem] {
-        Array(list.shuffled().prefix(upTo: 20))
+    var shuffledQuestionSet: [QuestionListItem] = []
+    
+    enum CodingKeys: CodingKey {
+        case title
+        case subtitle
+        case yearEdition
+        case driversLicenseCode
+        case generalDesc
+        case list
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container: KeyedDecodingContainer<ReviewSet.CodingKeys> = try decoder.container(keyedBy: ReviewSet.CodingKeys.self)
+        
+        self.title = try container.decode(String.self, forKey: ReviewSet.CodingKeys.title)
+        self.subtitle = try container.decode(String.self, forKey: ReviewSet.CodingKeys.subtitle)
+        self.yearEdition = try container.decode(Int.self, forKey: ReviewSet.CodingKeys.yearEdition)
+        self.driversLicenseCode = try container.decode([String].self, forKey: ReviewSet.CodingKeys.driversLicenseCode)
+        self.generalDesc = try container.decode(String.self, forKey: ReviewSet.CodingKeys.generalDesc)
+        self.list = try container.decode([QuestionListItem].self, forKey: ReviewSet.CodingKeys.list)
+        self.shuffledQuestionSet = Array(self.list.shuffled().prefix(upTo: 20))
+        
+    }
+    
 }
 
 class QuestionListItem: Identifiable, Decodable {

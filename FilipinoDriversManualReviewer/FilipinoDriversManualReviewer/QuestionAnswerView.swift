@@ -82,6 +82,8 @@ struct QuestionAnswerView: View {
                             Text(item.desc)
                                 .fontWeight(selectedOption == item ? .medium : .regular)
                                 .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .center)

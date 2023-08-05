@@ -24,6 +24,7 @@
 		2164139A2A7BBB630078E671 /* RouterDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216413992A7BBB630078E671 /* RouterDestination.swift */; };
 		2164139C2A7BBB760078E671 /* SheetDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164139B2A7BBB760078E671 /* SheetDestination.swift */; };
 		2164139E2A7BBB850078E671 /* RouterPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2164139D2A7BBB850078E671 /* RouterPath.swift */; };
+		21DA34072A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json in Resources */ = {isa = PBXBuildFile; fileRef = 21DA34062A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		216413992A7BBB630078E671 /* RouterDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterDestination.swift; sourceTree = "<group>"; };
 		2164139B2A7BBB760078E671 /* SheetDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDestination.swift; sourceTree = "<group>"; };
 		2164139D2A7BBB850078E671 /* RouterPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterPath.swift; sourceTree = "<group>"; };
+		21DA34062A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NonProfessionalLightReviewQuestions.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 		21DA34052A7E000000B935B1 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				21DA34062A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 			files = (
 				210342652A70969300BD3631 /* Preview Assets.xcassets in Resources */,
 				210342622A70969300BD3631 /* Assets.xcassets in Resources */,
+				21DA34072A7E092200B935B1 /* NonProfessionalLightReviewQuestions.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

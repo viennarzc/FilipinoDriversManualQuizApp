@@ -22,7 +22,8 @@ class QuestionsDataProvider: ObservableObject {
 
 struct QuestionAnswerMainContentView: View {
     @StateObject private var routerPath = RouterPath()
-    @StateObject var provider = QuestionsDataProvider(service: QuestionsAPIService(questionsAPI: QuestionsAPI()))
+//    @StateObject var provider = QuestionsDataProvider(service: QuestionsAPIService(questionsAPI: QuestionsAPI()))
+    @StateObject var provider = QuestionsDataProvider(service: QuestionsLocalDataAPIService())
     
     @State private var selectedQ: Int = 0
     @State private var review: ReviewSet? = nil
@@ -40,7 +41,7 @@ struct QuestionAnswerMainContentView: View {
                             .foregroundColor(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        Text("\(review.shuffledQuestionSet.count)")
+                       
                     }
                     
                 }
@@ -48,7 +49,7 @@ struct QuestionAnswerMainContentView: View {
                 
                 TabView(selection: $selectedQ) {
                     if let review = review {
-                        ForEach(0..<(review.shuffledQuestionSet.count - Int(1))) { index in
+                        ForEach(0..<(review.shuffledQuestionSet.count)) { index in
                             QuestionAnswerView(question: review.shuffledQuestionSet[index].question, answerOptions: review.shuffledQuestionSet[index].answerOptions.shuffled(), correctAnswer: review.shuffledQuestionSet[index].answer, onEvent: execute(with:))
                                 .tag(index)
                                 .padding(.horizontal)
@@ -56,6 +57,14 @@ struct QuestionAnswerMainContentView: View {
                         }
                         
                     }
+                }
+                
+                if let review = review {
+                    Text("\(selectedQ + 1) of \(review.shuffledQuestionSet.count)")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .padding()
                 }
                 
             }
@@ -99,7 +108,7 @@ struct QuestionAnswerMainContentView: View {
 
 struct QuestionAnswerMainContentView_Previews: PreviewProvider {
     
-    class MockQuestionsAPIService: QuestionsAPIServiceProtocol, ObservableObject {
+    class MockQuestionsAPIService: QuestionsAPIServiceProtocol {
         func fetchQuestions() async -> ReviewSet? {
             return ReviewSet(title: "Title", subtitle: "Subtitle", yearEdition: 2023, driversLicenseCode: ["B1, B"], generalDesc: "Non Prof", list: [
                 QuestionListItem(answer: "A", question: "Who is batman", answerOptions: [
