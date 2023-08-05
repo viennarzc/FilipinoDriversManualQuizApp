@@ -62,7 +62,7 @@ struct QuestionAnswerMainContentView: View {
                 }
                 .onChange(of: selectedQ) { newValue in
                     if let review = review {
-                        debugPrint(Float(Float(newValue) / Float(review.shuffledQuestionSet.count)))
+                        debugPrint(Float(Float(newValue + 1) / Float(review.shuffledQuestionSet.count)))
                         self.barProgress = Float(Float(newValue) / Float(review.shuffledQuestionSet.count))
                         
                     }
@@ -160,11 +160,11 @@ struct ProgressBar: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 Capsule().frame(width: geometry.size.width , height: geometry.size.height)
+                    .foregroundColor(Color.secondary)
                     .opacity(0.3)
-                    .foregroundColor(Color.primary)
                 
                 Capsule().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
-                    .foregroundColor(Color.secondary)
+                    .foregroundColor(Color.primary)
                     .animation(.linear, value: value)
             }.cornerRadius(45.0)
         }
