@@ -24,12 +24,6 @@ class QuestionsAPI: APIClientProtocol {
     }
     
     func fetchDataArray<T: Decodable>(from url: URL) async throws -> [T] {
-        if let _ = try? !url.checkResourceIsReachable() {
-            let data = await loadJSONObject(filename: "Json", type: [T].self)
-            
-            return data
-        }
-        
         let (data, response) = try await URLSession.shared.data(from: url)
         do {
             let decodedData = try JSONDecoder().decode([T].self, from: data)
@@ -76,7 +70,12 @@ class QuestionsAPI: APIClientProtocol {
     
 }
 
-class QuestionsAPIService: ObservableObject {
+protocol QuestionsAPIServiceProtocol {
+    func fetchQuestions() async -> ReviewSet?
+}
+
+
+class QuestionsAPIService: QuestionsAPIServiceProtocol, ObservableObject {
     
     private let questionsAPI: APIClientProtocol
     @Published var reviewSet: ReviewSet? = nil
@@ -101,4 +100,8 @@ class QuestionsAPIService: ObservableObject {
         return nil
     }
 
+}
+
+protocol LocalDataFetchable {
+    func loadJSONObject<T: Decodable>(filename: String, type: T.Type) async -> T
 }

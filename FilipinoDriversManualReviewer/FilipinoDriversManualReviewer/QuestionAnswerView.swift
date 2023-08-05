@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct QuestionAnswerView: View {
     
@@ -16,6 +17,35 @@ struct QuestionAnswerView: View {
     @State private var selectedOption: AnswerOption?
     @State private var isCorrectAnswer: Bool = false
     @State private var hasCommittedAnswer: Bool = false
+    
+    enum CallbackEvent {
+        case correctAnswer
+        case correctAnswerAndContinue
+        case wrongAnswer
+        case selectedOption
+    }
+    
+    enum QuestionAnswerState {
+        case idle
+        case correctAnswer
+        case wrongAnswer
+        case correctAnswerAndFinish
+    }
+    
+    @State private var questionAndAnswerState: QuestionAnswerState = .idle {
+        didSet {
+            debugPrint("old valude for state: ",oldValue)
+            debugPrint("new value state: ", questionAndAnswerState)
+            
+            if oldValue == .correctAnswer, questionAndAnswerState == .correctAnswer {
+                onEvent(.correctAnswerAndContinue)
+            }
+        }
+    }
+    
+    var onEvent: (CallbackEvent) -> Void
+    
+    @State private var observers: [AnyCancellable] = []
     
     func setOptionColor(selectedAnswer: String?, equalTo current: String) -> Color {
         guard let selectedAnswer = selectedAnswer else {
@@ -40,7 +70,7 @@ struct QuestionAnswerView: View {
     var body: some View {
         VStack {
             Text(question)
-                .font(.title2)
+                .font(.title2.bold())
             
             Spacer(minLength: 32)
             
@@ -65,7 +95,7 @@ struct QuestionAnswerView: View {
                     hasCommittedAnswer = false
                 }
             }
-            .padding(.horizontal)
+            
             
             Spacer(minLength: 64)
             
@@ -78,11 +108,11 @@ struct QuestionAnswerView: View {
                 
             })
             .buttonStyle(.borderedProminent)
-            .padding(.horizontal)
             .tint(.black)
             .disabled(selectedOption == nil)
             
         }
+
     }
     
     private func checkAnswer() {
@@ -92,9 +122,15 @@ struct QuestionAnswerView: View {
         
         if correctAnswer == selectedOption.code {
             isCorrectAnswer = true
+            questionAndAnswerState = .correctAnswer
+            onEvent(.correctAnswer)
+            
         } else {
             isCorrectAnswer = false
+            questionAndAnswerState = .wrongAnswer
+            onEvent(.wrongAnswer)
         }
+        
     }
 }
 
@@ -102,6 +138,6 @@ struct QuestionAnswerView_Previews: PreviewProvider {
     static var previews: some View {
         QuestionAnswerView(question: "What is the fastest way to drive?", answerOptions: [
             AnswerOption(code: "A", desc: "The who")
-        ], correctAnswer: "Wear seatbelt")
+        ], correctAnswer: "Wear seatbelt", onEvent: { _ in })
     }
 }

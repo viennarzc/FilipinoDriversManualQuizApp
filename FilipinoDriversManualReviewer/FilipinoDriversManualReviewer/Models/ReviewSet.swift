@@ -8,6 +8,15 @@
 import Foundation
 
 class ReviewSet: Decodable {
+    internal init(title: String, subtitle: String, yearEdition: Int, driversLicenseCode: [String], generalDesc: String, list: [QuestionListItem]) {
+        self.title = title
+        self.subtitle = subtitle
+        self.yearEdition = yearEdition
+        self.driversLicenseCode = driversLicenseCode
+        self.generalDesc = generalDesc
+        self.list = list
+    }
+    
     let title: String
     let subtitle: String
     let yearEdition: Int
@@ -17,6 +26,12 @@ class ReviewSet: Decodable {
 }
 
 class QuestionListItem: Identifiable, Decodable {
+    internal init(answer: String, question: String, answerOptions: [AnswerOption]) {
+        self.answer = answer
+        self.question = question
+        self.answerOptions = answerOptions
+    }
+    
     var id: String { question }
     let answer: String
     let question: String

@@ -7,26 +7,61 @@
 
 import SwiftUI
 
+class QuestionsDataProvider: ObservableObject {
+    private let service: QuestionsAPIServiceProtocol
+    
+    init(service: QuestionsAPIServiceProtocol) {
+        self.service = service
+    }
+    
+    func fetchQuestions() async -> ReviewSet? {
+        await service.fetchQuestions()
+    }
+}
+
 struct QuestionAnswerMainContentView: View {
     @StateObject private var routerPath = RouterPath()
-    @StateObject private var service = QuestionsAPIService(questionsAPI: QuestionsAPI())
+    @StateObject var provider = QuestionsDataProvider(service: QuestionsAPIService(questionsAPI: QuestionsAPI()))
     
     @State private var selectedQ: Int = 0
     @State private var review: ReviewSet? = nil
 
     var body: some View {
         NavigationStack(path: $routerPath.path, root: {
-            TabView(selection: $selectedQ) {
-                if let review = review {
-                    ForEach(review.list) { item in
-                        QuestionAnswerView(question: item.question, answerOptions: item.answerOptions, correctAnswer: item.answer)
+            VStack {
+                Spacer(minLength: 32)
+                Group {
+                    if let review = review {
+                        Text(review.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.title3.bold())
+                        Text(review.subtitle)
+                            .foregroundColor(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text("\(review.list.count)")
                     }
                     
                 }
+                .padding(.horizontal)
+                
+                TabView(selection: $selectedQ) {
+                    if let review = review {
+                        ForEach(0..<(review.list.count - Int(1))) { index in
+                            QuestionAnswerView(question: review.list[index].question, answerOptions: review.list[index].answerOptions, correctAnswer: review.list[index].answer, onEvent: execute(with:))
+                                .tag(index)
+                                .padding(.horizontal)
+                                
+                        }
+                        
+                    }
+                }
+                .simultaneousGesture(DragGesture())
             }
+            
             .tabViewStyle(.page(indexDisplayMode: .never))
             .task {
-                let item = await service.fetchQuestions()
+                let item = await provider.fetchQuestions()
 
                 review = item
             }
@@ -36,11 +71,54 @@ struct QuestionAnswerMainContentView: View {
         
 
     }
+    
+    func execute(with event: QuestionAnswerView.CallbackEvent) {
+        switch event {
+        case .correctAnswer:
+            break
+            
+        case .selectedOption:
+            break
+            
+        case .wrongAnswer:
+            break
+            
+        case .correctAnswerAndContinue:
+            if review?.list.count ?? 0 >= (selectedQ - 1)  {
+                withAnimation {
+                    selectedQ = selectedQ + 1
+                    
+                }
+                
+            }
+        
+        }
+    }
 }
 
 struct QuestionAnswerMainContentView_Previews: PreviewProvider {
+    
+    class MockQuestionsAPIService: QuestionsAPIServiceProtocol, ObservableObject {
+        func fetchQuestions() async -> ReviewSet? {
+            return ReviewSet(title: "Title", subtitle: "Subtitle", yearEdition: 2023, driversLicenseCode: ["B1, B"], generalDesc: "Non Prof", list: [
+                QuestionListItem(answer: "A", question: "Who is batman", answerOptions: [
+                    AnswerOption(code: "A", desc: "Bruce"),
+                    AnswerOption(code: "B", desc: "Jane")
+                ]),
+                QuestionListItem(answer: "C", question: "What does the fox say?", answerOptions: [
+                    AnswerOption(code: "A", desc: "Hihihi"),
+                    AnswerOption(code: "B", desc: "Whwohow"),
+                    AnswerOption(code: "C", desc: "Hieeeee"),
+                    AnswerOption(code: "D", desc: "Hassssss"),
+                ]),
+            ])
+        }
+        
+        
+    }
+    
     static var previews: some View {
-        QuestionAnswerMainContentView()
+        QuestionAnswerMainContentView(provider: QuestionsDataProvider(service: MockQuestionsAPIService()))
     }
 }
 
