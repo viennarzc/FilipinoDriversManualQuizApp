@@ -111,11 +111,12 @@ struct QuestionAnswerView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding()
                         .font(.body.bold())
+                        .background(Capsule(style: .continuous).fill(Color.black))
                     
                     
                     
                 })
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.plain)
                 .tint(.black)
                 .disabled(selectedOption == nil)
                 
