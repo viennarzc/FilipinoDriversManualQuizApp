@@ -26,6 +26,8 @@ struct QuestionAnswerMainContentView: View {
     @StateObject var provider = QuestionsDataProvider(service: QuestionsLocalDataAPIService())
     
     @State private var selectedQ: Int = 0
+    @State private var barProgress: Float = 0.0
+    
     @State private var review: ReviewSet? = nil
 
     var body: some View {
@@ -58,13 +60,24 @@ struct QuestionAnswerMainContentView: View {
                         
                     }
                 }
+                .onChange(of: selectedQ) { newValue in
+                    if let review = review {
+                        debugPrint(Float(Float(newValue) / Float(review.shuffledQuestionSet.count)))
+                        self.barProgress = Float(Float(newValue) / Float(review.shuffledQuestionSet.count))
+                        
+                    }
+                }
                 
                 if let review = review {
-                    Text("\(selectedQ + 1) of \(review.shuffledQuestionSet.count)")
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .padding()
+                    HStack(spacing: 4) {
+                        ProgressBar(value: $barProgress)
+                            .frame(maxWidth: .infinity, maxHeight: 2)
+                        
+                        Text("\(selectedQ + 1) of \(review.shuffledQuestionSet.count)")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
                 }
                 
             }
@@ -138,4 +151,22 @@ public struct QuestionItem: Decodable, Equatable, Hashable {
     let question: String
     let options: [String]
     let answer: String
+}
+
+struct ProgressBar: View {
+    @Binding var value: Float
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                Capsule().frame(width: geometry.size.width , height: geometry.size.height)
+                    .opacity(0.3)
+                    .foregroundColor(Color.primary)
+                
+                Capsule().frame(width: min(CGFloat(self.value)*geometry.size.width, geometry.size.width), height: geometry.size.height)
+                    .foregroundColor(Color.secondary)
+                    .animation(.linear, value: value)
+            }.cornerRadius(45.0)
+        }
+    }
 }

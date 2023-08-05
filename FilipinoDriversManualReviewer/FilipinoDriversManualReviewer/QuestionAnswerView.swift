@@ -49,11 +49,11 @@ struct QuestionAnswerView: View {
     
     func setOptionColor(selectedAnswer: String?, equalTo current: String) -> Color {
         guard let selectedAnswer = selectedAnswer else {
-            return .gray
+            return .secondary
         }
         
         if !hasCommittedAnswer, !isCorrectAnswer, selectedAnswer == current {
-            return .black
+            return .primary
         }
         
         if hasCommittedAnswer, !isCorrectAnswer, selectedAnswer == current {
@@ -64,7 +64,7 @@ struct QuestionAnswerView: View {
             return .green
         }
         
-        return .gray
+        return .secondary
     }
     
     var body: some View {
@@ -110,6 +110,7 @@ struct QuestionAnswerView: View {
                         .font(.body.bold())
                     
                     
+                    
                 })
                 .buttonStyle(.borderedProminent)
                 .tint(.black)
@@ -138,6 +139,8 @@ struct QuestionAnswerView: View {
         
     }
 }
+
+
 
 struct QuestionAnswerView_Previews: PreviewProvider {
     static var previews: some View {
