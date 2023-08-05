@@ -68,49 +68,52 @@ struct QuestionAnswerView: View {
     }
     
     var body: some View {
-        VStack {
-            Text(question)
-                .font(.title2.bold())
-            
-            Spacer(minLength: 32)
-            
-            VStack(spacing: 16) {
-                ForEach(answerOptions) { item in
-                    VStack {
-                        Text(item.desc)
-                            .fontWeight(selectedOption == item ? .medium : .regular)
-                            .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
+        
+        GroupBox {
+            VStack {
+                Text(question)
+                    .font(.title2.bold())
+                
+                Spacer(minLength: 32)
+                
+                VStack(spacing: 16) {
+                    ForEach(answerOptions) { item in
+                        VStack {
+                            Text(item.desc)
+                                .fontWeight(selectedOption == item ? .medium : .regular)
+                                .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .background(RoundedRectangle(
+                            cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            self.selectedOption = item
+                        }
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .background(RoundedRectangle(
-                        cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        self.selectedOption = item
+                    .disabled(isCorrectAnswer)
+                    .onChange(of: selectedOption) { newValue in
+                        hasCommittedAnswer = false
                     }
                 }
-                .disabled(isCorrectAnswer)
-                .onChange(of: selectedOption) { newValue in
-                    hasCommittedAnswer = false
-                }
+                
+                
+                Spacer(minLength: 64)
+                
+                Button(action: checkAnswer, label: {
+                    Text(isCorrectAnswer ? "Continue" : "Check Answer")
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding()
+                        .font(.body.bold())
+                    
+                    
+                })
+                .buttonStyle(.borderedProminent)
+                .tint(.black)
+                .disabled(selectedOption == nil)
+                
             }
-            
-            
-            Spacer(minLength: 64)
-            
-            Button(action: checkAnswer, label: {
-                Text(isCorrectAnswer ? "Continue" : "Check Answer")
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
-                    .font(.body.bold())
-                
-                
-            })
-            .buttonStyle(.borderedProminent)
-            .tint(.black)
-            .disabled(selectedOption == nil)
-            
         }
 
     }

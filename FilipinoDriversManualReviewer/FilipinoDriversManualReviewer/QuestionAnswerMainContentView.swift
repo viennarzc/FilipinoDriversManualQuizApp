@@ -19,6 +19,7 @@ class QuestionsDataProvider: ObservableObject {
     }
 }
 
+
 struct QuestionAnswerMainContentView: View {
     @StateObject private var routerPath = RouterPath()
     @StateObject var provider = QuestionsDataProvider(service: QuestionsAPIService(questionsAPI: QuestionsAPI()))
@@ -39,7 +40,7 @@ struct QuestionAnswerMainContentView: View {
                             .foregroundColor(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        Text("\(review.list.count)")
+                        Text("\(review.shuffledQuestionSet.count)")
                     }
                     
                 }
@@ -47,8 +48,8 @@ struct QuestionAnswerMainContentView: View {
                 
                 TabView(selection: $selectedQ) {
                     if let review = review {
-                        ForEach(0..<(review.list.count - Int(1))) { index in
-                            QuestionAnswerView(question: review.list[index].question, answerOptions: review.list[index].answerOptions, correctAnswer: review.list[index].answer, onEvent: execute(with:))
+                        ForEach(0..<(review.shuffledQuestionSet.count - Int(1))) { index in
+                            QuestionAnswerView(question: review.shuffledQuestionSet[index].question, answerOptions: review.shuffledQuestionSet[index].answerOptions.shuffled(), correctAnswer: review.shuffledQuestionSet[index].answer, onEvent: execute(with:))
                                 .tag(index)
                                 .padding(.horizontal)
                                 
@@ -56,7 +57,7 @@ struct QuestionAnswerMainContentView: View {
                         
                     }
                 }
-                .simultaneousGesture(DragGesture())
+                
             }
             
             .tabViewStyle(.page(indexDisplayMode: .never))
@@ -84,7 +85,7 @@ struct QuestionAnswerMainContentView: View {
             break
             
         case .correctAnswerAndContinue:
-            if review?.list.count ?? 0 >= (selectedQ - 1)  {
+            if review?.shuffledQuestionSet.count ?? 0 >= (selectedQ - 1)  {
                 withAnimation {
                     selectedQ = selectedQ + 1
                     

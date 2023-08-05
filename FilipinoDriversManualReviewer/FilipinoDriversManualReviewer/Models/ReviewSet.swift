@@ -23,6 +23,10 @@ class ReviewSet: Decodable {
     let driversLicenseCode: [String]
     let generalDesc: String
     let list: [QuestionListItem]
+    
+    var shuffledQuestionSet: [QuestionListItem] {
+        Array(list.shuffled().prefix(upTo: 20))
+    }
 }
 
 class QuestionListItem: Identifiable, Decodable {

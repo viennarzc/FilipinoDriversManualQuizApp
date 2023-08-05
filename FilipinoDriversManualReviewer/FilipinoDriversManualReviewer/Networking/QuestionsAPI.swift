@@ -78,7 +78,6 @@ protocol QuestionsAPIServiceProtocol {
 class QuestionsAPIService: QuestionsAPIServiceProtocol, ObservableObject {
     
     private let questionsAPI: APIClientProtocol
-    @Published var reviewSet: ReviewSet? = nil
     
     init(questionsAPI: APIClientProtocol) {
         self.questionsAPI = questionsAPI
@@ -100,6 +99,37 @@ class QuestionsAPIService: QuestionsAPIServiceProtocol, ObservableObject {
         return nil
     }
 
+}
+
+class QuestionsLocalDataAPIService: QuestionsAPIServiceProtocol, LocalDataFetchable{
+    var bundle: Bundle {
+        return Bundle(for: type(of: self))
+    }
+    
+    func loadJSONObject<T>(filename: String, type: T.Type) async -> T where T : Decodable {
+        
+        
+        guard let path = bundle.url(forResource: filename, withExtension: "json") else {
+            fatalError("Faile to load JSON File \(filename)")
+        }
+        
+        do {
+            let data = try Data(contentsOf: path)
+            let decoded = try JSONDecoder().decode(T.self, from: data)
+            
+            return decoded
+            
+        } catch let error {
+            debugPrint("error at \(#file) - \(#function): \(error.localizedDescription)")
+            fatalError("failed to decode \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchQuestions() async -> ReviewSet? {
+        await loadJSONObject(filename: "", type: ReviewSet.self)
+    }
+    
+    
 }
 
 protocol LocalDataFetchable {
