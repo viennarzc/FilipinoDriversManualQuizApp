@@ -82,16 +82,17 @@ struct QuestionAnswerView: View {
                         ForEach(answerOptions) { item in
                             VStack {
                                 Text(item.desc)
-                                    .fontWeight(selectedOption == item ? .medium : .regular)
+                                    .fontWeight(.medium)
                                     .foregroundColor(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code))
                                     .multilineTextAlignment(.center)
                                     .fixedSize(horizontal: false, vertical: true)
                             }
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .center)
-                            .background(RoundedRectangle(
-                                cornerRadius: 8).stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
                             .contentShape(Rectangle())
+                            .background(RoundedRectangle(cornerRadius: 8)
+                                .stroke(setOptionColor(selectedAnswer: selectedOption?.code, equalTo: item.code), lineWidth: selectedOption == item ? 3 : 1))
+                            .padding(.horizontal, 4)
                             .onTapGesture {
                                 self.selectedOption = item
                             }
