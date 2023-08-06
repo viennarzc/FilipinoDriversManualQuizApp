@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct QuestionAnswerView: View {
+    @Environment(\.colorScheme) var colorScheme
     
     let question: String
     let answerOptions: [AnswerOption]
@@ -111,11 +112,12 @@ struct QuestionAnswerView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding()
                         .font(.body.bold())
-                        .background(Capsule(style: .continuous).fill(Color.black))
+                        .background(Capsule(style: .continuous).fill(Color.primary))
+                        .foregroundColor(colorScheme == .dark ? .black : .white)
+                        
                     
                 })
                 .buttonStyle(.plain)
-                .tint(.black)
                 .disabled(selectedOption == nil)
                 
             }
