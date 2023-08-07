@@ -1,28 +1,50 @@
 //
-//  GetStartedView.swift
+//  ChooseReviewSetView.swift
 //  FilipinoDriversManualReviewer
 //
-//  Created by Viennarz Curtiz on 8/5/23.
+//  Created by Viennarz Curtiz on 8/7/23.
 //
 
 import SwiftUI
 
-struct GetStartedView: View {
+struct ChooseReviewSetView: View {
     @Environment(\.colorScheme) var colorScheme
+    
+    enum Set {
+        case nonProfessional
+        case professional
+    }
+    
+    @State private var selectedSet: Set?
     
     var body: some View {
         VStack {
             VStack(spacing: 32) {
                 Group {
-                    Text("Welcome to Driver's License Prep")
+                    Text("Select Your Review Set")
                         .frame(maxWidth: .infinity, alignment: .center)
                         .font(.title.bold())
                         .foregroundColor(.primary)
                     
-                    Text("Your key to a confident driving experience! Prepare for your Professional or Non-Professional driver's license exam using our app")
+                    Text("Choose the review set that matches the type of driver's license you're preparing for.")
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(.secondary)
+                    
+                    VStack {
+                        Button {
+                            
+                        } label: {
+                            Text("Non-professional")
+                        }
+                        
+                        Button {
+                            
+                        } label: {
+                            Text("Professional")
+                        }
+
+                    }
                 }
                 .padding(.horizontal, 32)
                 
@@ -31,7 +53,7 @@ struct GetStartedView: View {
             Spacer(minLength: 48).frame(height: 64)
             
                 Button(action: onTapGetStarted) {
-                    Text("Let's Get Started!")
+                    Text("Continue")
                         .foregroundColor(colorScheme == .dark ? .black : .white)
                         .padding()
                         .font(.body.weight(.medium))
@@ -39,8 +61,18 @@ struct GetStartedView: View {
                 }
                 .buttonStyle(.plain)
                 .tint(.black)
+            
+            Button(action: onTapGetStarted) {
+                Text("I'll take the quizzes later")
+                    .padding()
+                    .font(.body)
+                    
+            }
+            .buttonStyle(.plain)
+            .tint(.black)
 
         }
+    
     }
     
     func onTapGetStarted() {
@@ -48,8 +80,8 @@ struct GetStartedView: View {
     }
 }
 
-struct GetStartedView_Previews: PreviewProvider {
+struct ChooseReviewSetView_Previews: PreviewProvider {
     static var previews: some View {
-        GetStartedView()
+        ChooseReviewSetView()
     }
 }
