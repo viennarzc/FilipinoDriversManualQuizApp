@@ -17,34 +17,92 @@ struct ChooseReviewSetView: View {
     
     @State private var selectedSet: Set?
     
+    private var disableContinue: Bool {
+        (selectedSet == nil) || selectedSet == .professional
+    }
+    
     var body: some View {
         VStack {
             VStack(spacing: 32) {
                 Group {
-                    Text("Select Your Review Set")
+                    Text("Test your knowledge now!")
+                        .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, alignment: .center)
-                        .font(.title.bold())
+                        .font(.largeTitle.bold())
                         .foregroundColor(.primary)
                     
-                    Text("Choose the review set that matches the type of driver's license you're preparing for.")
+                    Text("Choose the **review** set that matches the type of driver's license you're preparing for.")
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                         .foregroundColor(.secondary)
                     
                     VStack {
                         Button {
+                            withAnimation {
+                                selectedSet = .nonProfessional
+                                
+                            }
                             
                         } label: {
-                            Text("Non-professional")
+                            VStack {
+                                Text("Non-professional")
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .fontWeight(.regular)
+                                    .foregroundColor(.primary)
+                                    .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .padding(8)
+                                    
+                                
+                                if selectedSet == .nonProfessional {
+                                    Text("Designed for those pursuing a Non-Professional driver's license, this review set focuses on essential road signs and rules for everyday driving.")
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                        .foregroundColor(.secondary)
+                                        .font(Font.footnote)
+                                        .padding([.horizontal, .bottom], 16)
+                                }
+
+                                
+                            
+                            }
+                            .background(RoundedRectangle(cornerRadius: 8)
+                                .stroke(selectedSet == .nonProfessional ? .primary : .secondary))
                         }
                         
+                        
                         Button {
+                            withAnimation {
+                                selectedSet = .professional
+                                
+                            }
                             
                         } label: {
-                            Text("Professional")
+                            VStack {
+                                Text("Professional")
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .fontWeight(.regular)
+                                    .foregroundColor(.primary)
+                                    .multilineTextAlignment(.center)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .padding(8)
+                                
+                                
+                                if selectedSet == .professional {
+                                    Text("Unavailable")
+                                        .frame(maxWidth: .infinity, alignment: .center)
+                                        .foregroundColor(.secondary)
+                                        .font(Font.footnote)
+                                        .padding([.horizontal, .bottom], 16)
+                                }
+                                
+                            }
+                            .background(RoundedRectangle(cornerRadius: 8)
+                                .stroke(selectedSet == .professional ? .primary : .secondary))
                         }
+                        
 
                     }
+                    .tint(.secondary)
                 }
                 .padding(.horizontal, 32)
                 
@@ -61,11 +119,12 @@ struct ChooseReviewSetView: View {
                 }
                 .buttonStyle(.plain)
                 .tint(.black)
+                .disabled(disableContinue)
             
             Button(action: onTapGetStarted) {
                 Text("I'll take the quizzes later")
                     .padding()
-                    .font(.body)
+                    .font(.caption2.weight(.bold))
                     
             }
             .buttonStyle(.plain)
